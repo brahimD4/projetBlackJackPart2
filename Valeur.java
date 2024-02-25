@@ -1,4 +1,4 @@
-package Blackjackpart2;
+package blackjack;
 
 public enum Valeur {
 	ACE("A",1),

@@ -1,4 +1,4 @@
-package Blackjackpart2;
+package blackjack;
 
 public interface InterfaceJoueur {
 	 public void jRecoirCarte(PaquetCartes paquet);

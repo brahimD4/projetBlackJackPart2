@@ -1,36 +1,53 @@
-package Blackjackpart2;
+package blackjack;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+public class Carte implements InterfaceCarte {
+   private Couleur couleurs;
+   private Valeur valeurs;
+   private boolean affiche;
+  
 
-//import ConnexionJDBC.Connexion;
-
-public class Carte {
-   String type;
-   String couleur;
-    int valeurcarte;
-	boolean affiche;
-	
-	Connection connex=Connexion.connexionDB();
-	
-public void AfficheCartesql() {
-	
-String query="SELECT typee,couleur_carte  FROM carte limit 1 ";
- 
-	try {
-		
-		 Statement statemnt = connex.createStatement();
-	      ResultSet result = statemnt.executeQuery(query);
-		  while(result.next()) {
-			 type=result.getString(1);
-			 couleur=result.getString(2);
-				System.out.println("   {   "+type+"   |  |  "+couleur+"  }      ");
-			}
-	}catch(SQLException e) {
-		
-		System.out.println(e.getMessage());
-	}	
+public Carte(Couleur couleur, Valeur valeur) {
+	this.couleurs = couleur;
+	this.valeurs = valeur;
+	this.affiche=true;
 }
+
+@Override
+public Couleur getCouleurs() {
+	return couleurs;
+}
+@Override
+public void setCouleurs(Couleur couleur) {
+	this.couleurs = couleur;
+}
+@Override
+public Valeur getValeurs() {
+	return valeurs;
+}@Override
+public void setValeurs(Valeur valeur) {
+	this.valeurs = valeur;
+}
+@Override
+public boolean isAffiche() {
+	return affiche;
+}
+@Override
+public void setAffiche(boolean affiche) {
+	this.affiche = affiche;
+}
+
+@Override
+public void tourner() {
+	 affiche=!affiche;
+ } 
+
+@Override
+public void AfficheCarte() {
+	if(affiche)
+		System.out.printf("   {   "+valeurs.getNomval()+" || "+couleurs.getNomcol()+"  }      ");
+	else
+		System.out.printf("     cache");
+	}
+	
+	
 }

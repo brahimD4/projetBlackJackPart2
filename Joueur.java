@@ -1,49 +1,60 @@
-package Blackjackpart2;
+package blackjack;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Scanner;
 
-public class Joueur  {
-	String nomjoueur;
-	int solde;
+public class Joueur implements InterfaceJoueur  {
 	
-	Connection connex=Connexion.connexionDB();
+	  public Main mainJR ;
 	   
-	 
-	public void createJoueur(int id_main) {
-		
-		String query="insert into joueur(name_joueur,solde_joueur,id_main)values('joueur',20,"+id_main+")" ;
-		try {
-			
-			 Statement statemnt = connex.createStatement();
-		       statemnt.executeUpdate(query);
-		   System.out.println("le joueur est bien creer");
-		   
-		}catch(SQLException e) {
-			System.out.println(e.getMessage());
+	int solde;
+	  
+	  public Joueur(Main mainJR) {
+			super();
+			this.mainJR = mainJR;
+			this.solde=100;
 		}
+	   
+	   public void jRecoirCarte(PaquetCartes paquet) {
+			mainJR.listCartes.add(paquet.listCartes.get(0));
+			paquet.listCartes.remove(paquet.listCartes.get(0));
 		
-	}
-	
-	
-	
-	
+		}
+	   
+	   @Override
 public void AfficheMainJoueur() {
 	 System.out.println();
 	 System.out.println(" ---------- Main de Joueur");
 	 System.out.println();
-//	mainJR.AffichelisteCartes();
+	mainJR.AffichelisteCartes();
 	 System.out.println();
 	 System.out.println();
-	// System.out.println(" ----->Valeur Total=  "+mainJR.getValeurTotal());
+	 System.out.println(" ----->Valeur Total=  "+mainJR.getValeurTotal());
 	 System.out.println();
-	// System.out.println(" ----->Nombre de Cartes=  "+mainJR.getNbCartes());
+	 System.out.println(" ----->Nombre de Cartes=  "+mainJR.getNbCartes());
 	 System.out.println("******************************************************************************");
 }
 
+	   @Override
+public int getSolde() {
+	return solde;
+}
+	   @Override
+public void incrementSolde(int sold) {
+this.solde+=sold;
 
+}
+	   @Override
+public void disincrementSolde(int sold) {
+this.solde-=sold;
 
-
+}
+	   @Override
+public int  verifirMise(int mise) {
+	
+	if(mise<=solde) {
+		//solde insufisante
+		 return 1;
+	}else
+		return 2;
+}
 }

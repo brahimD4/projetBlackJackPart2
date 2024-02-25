@@ -1,4 +1,4 @@
-package Blackjackpart2;
+package blackjack;
 
 public enum Couleur {
 	 COEUR("coeur"),

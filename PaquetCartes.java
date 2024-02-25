@@ -1,25 +1,16 @@
-package Blackjackpart2;
-//import ConnexionJDBC.Connexion;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+package blackjack;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class PaquetCartes extends Main{
-	
-	/*
+public class PaquetCartes extends Main implements InterfacePaquetCartes{
 	
 public PaquetCartes() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+@Override
 public void RemplirPaquet() {
-
-
-	
 	for(Couleur col:Couleur.values()) {
 	for(Valeur val:Valeur.values()) {
 		Carte cart=new Carte(col, val);
@@ -29,11 +20,12 @@ public void RemplirPaquet() {
 	}
 		
 	}
+@Override
 public void MelangerCartes() {
 	Collections.shuffle(listCartes);
 }
 
-*/
+
 }
 
 

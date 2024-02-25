@@ -1,4 +1,4 @@
-package Blackjackpart2;
+package blackjack;
 
 public interface InterfaceCroupier {
 	public void cRecoirCarte(PaquetCartes paquet);

@@ -1,9 +1,9 @@
-package Blackjackpart2;
+package blackjack;
 
 import java.util.ArrayList;
 
-public class Croupier {
-/*
+public class Croupier implements InterfaceCroupier{
+
 public Main mainCR;
 	
 	
@@ -13,6 +13,7 @@ public Croupier(Main mainCR) {
 	}
 
 //croupier recoit un carte
+@Override
 public void cRecoirCarte(PaquetCartes paquet) {
 	     mainCR.listCartes.add(paquet.listCartes.get(0));
 	  	paquet.listCartes.remove(paquet.listCartes.get(0));
@@ -20,6 +21,7 @@ public void cRecoirCarte(PaquetCartes paquet) {
 	}
 
 //Affiche la main de Croupier
+@Override
 public void AfficheMainCroupier() {
 	 System.out.println();
 		System.out.println("****************************************************************************");
@@ -35,6 +37,7 @@ public void AfficheMainCroupier() {
 		 }
 	 
 //Distrubier les cartes par le croupier
+@Override
 public void DistribuerLesCartes(PaquetCartes paquet, Joueur jouer1) {
 
 for(int i=0;i<1;i++) {
@@ -47,7 +50,11 @@ for(int i=0;i<1;i++) {
 		
 }
 
-}*/
+
+		
+	
+
+}
 }
 	
 
